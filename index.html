@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang=en>
+  <head>
+    <meta charset=UTF-8>
+    <meta name=viewport content="width=device-width, initial-scale=1.0">
+    <meta http-equiv=X-UA-Compatible content="ie=edge">
+    <link rel=stylesheet href=final/css/style.min.css>
+    <link rel="stylesheet" href="final/fonts/merriweather.css">
+    <title>Тест-проект</title>
+    <script src="node_modules/jquery/dist/jquery.min.js" ></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <ul class="menu">
+          <li class="menu__item menu__item--logo">
+            <a href="/">
+              <img src="./final/img/logo_top.svg" alt="">
+            </a>
+          </li>
+          <li class="menu__item"><a href="#" class="menu__link">Каталог</a></li>
+          <li class="menu__item"><a href="#" class="menu__link">Доставка</a></li>
+          <li class="menu__item"><a href="#" class="menu__link">Оплата</a></li>
+          <li class="menu__item"><a href="#" class="menu__link">Контакты</a></li>
+          <li class="menu__item"><a href="#" class="menu__link">О галерее</a></li>
+          <li class="menu__item menu-form">
+            <form action="" method="get" id="search">
+              <input type="search" name="search" id="" placeholder="Поиск по названию картины">
+              <button type="submit" name="button" class="button">Найти</button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <div class="page">
+      <div class="container">
+        <div class="page__title">Картины эпохи Возрождения</div>
+        <div class="gallery">
+          <div class="gallery-card" id="paint1">
+            <div class="gallery-card__img">
+              <img src="./final/img/painting-1.jpg" alt="">
+            </div>
+            <div class="gallery-card__content">
+              <div class="gallery-card__title">«Рождение Венеры» Сандро Боттичелли</div>
+              <div class="gallery-card__sell">
+                <div class="gallery-card__price">
+                  <div class="gallery-card__price-old">2 000 000 $</div>
+                  <div class="gallery-card__price-new">1 000 000 $</div>
+                </div>
+                <button type="submit" class="gallery-card__button button" onclick="">Купить</button>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-card" id="paint2">
+            <div class="gallery-card__img">
+              <img src="./final/img/painting-2.jpg" alt="">
+            </div>
+            <div class="gallery-card__content">
+              <div class="gallery-card__title">«Тайная вечеря» Леонардо да Винчи</div>
+              <div class="gallery-card__sell">
+                <div class="gallery-card__price">
+                  <div class="gallery-card__price-old"></div>
+                  <div class="gallery-card__price-new">3 000 000 $</div>
+                </div>
+                <button type="submit" class="gallery-card__button button" onclick="">Купить</button>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-card" id="paint3">
+            <div class="gallery-card__img">
+              <img src="./final/img/painting-3.jpg" alt="">
+            </div>
+            <div class="gallery-card__content">
+              <div class="gallery-card__title">«Сотворение Адама» Микеланджело</div>
+              <div class="gallery-card__sell">
+                <div class="gallery-card__price">
+                  <div class="gallery-card__price-old">6 000 000 $</div>
+                  <div class="gallery-card__price-new">5 000 000 $</div>
+                </div>
+                <button type="submit" class="gallery-card__button button" onclick="">Купить</button>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-card gallery-card_sales">
+            <div class="gallery-card__img">
+              <img src="./final/img/painting-4.jpg" alt="">
+            </div>
+            <div class="gallery-card__content">
+              <div class="gallery-card__title">«Урок анатомии» Рембрандт</div>
+              <div class="gallery-card__sell">
+                Продана на аукционе
+                <!-- <div class="gallery-card__price">
+                  <div class="gallery-card__price-old">2 000 000 $</div>
+                  <div class="gallery-card__price-new">1 000 000 $</div>
+                </div>
+                <button type="submit" class="gallery-card__button button" onclick="">Купить</button> -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <ul class="menu">
+          <li class="menu__item menu__item-logo">
+            <a href="/">
+              <img src="./final/img/logo_bottom.svg" alt="">
+            </a>
+          </li>
+          <li class="menu__item"><a href="#" class="menu__link">Каталог</a></li>
+          <li class="menu__item"><a href="#" class="menu__link">Доставка</a></li>
+          <li class="menu__item"><a href="#" class="menu__link">Оплата</a></li>
+          <li class="menu__item"><a href="#" class="menu__link">Контакты</a></li>
+          <li class="menu__item"><a href="#" class="menu__link">О галерее</a></li>
+          <li class="menu__item menu__item-tel"><a href="#" class="menu__link">+7(495)555-55-55</a></li>
+          <li class="menu__item menu__item-address"><a href="#" class="menu__link">г. Москва, ул. Расплетина, 24</a></li>
+        </ul>
+      </div>
+    </footer>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script>
+
+      $(document).ready(function(){
+        if(localStorage.getItem("paint_1") != null){
+          $('#paint1 .gallery-card__button').html('<img src="final/img/icon_in-bucket.svg" style="margin-right: 5px;">В корзине').css('background', '#5B3A32');
+        }
+        if(localStorage.getItem("paint_2") != null){
+          $('#paint2 .gallery-card__button').html('<img src="final/img/icon_in-bucket.svg" style="margin-right: 5px;">В корзине').css('background', '#5B3A32');
+        }
+        if(localStorage.getItem("paint_3") != null){
+          $('#paint3 .gallery-card__button').html('<img src="final/img/icon_in-bucket.svg" style="margin-right: 5px;">В корзине').css('background', '#5B3A32');
+        }
+        $('#paint1 .gallery-card__button').click(async function BuyPaint(){
+          var button = $(this);
+          const url = 'https://jsonplaceholder.typicode.com/posts/1';
+          const promise = axios.get(url)
+          .then(response => console.log(response.data.title));
+          button.html('В обработке..');
+          await promise
+          button.html('<img src="final/img/icon_in-bucket.svg" style="margin-right: 5px;">В корзине').css('background', '#5B3A32');
+          localStorage.setItem("paint_1", 'true');
+        });
+        $('#paint2 .gallery-card__button').click(async function BuyPaint(){
+          var button = $(this);
+          const url = 'https://jsonplaceholder.typicode.com/posts/1';
+          const promise = axios.get(url)
+          .then(response => console.log(response.data.title));
+          button.html('В обработке..');
+          await promise
+          button.html('<img src="final/img/icon_in-bucket.svg" style="margin-right: 5px;">В корзине').css('background', '#5B3A32');
+          localStorage.setItem("paint_2", 'true');
+        });
+        $('#paint3 .gallery-card__button').click(async function BuyPaint(){
+          var button = $(this);
+          const url = 'https://reqres.in/api/products/3';
+          const promise = axios.get(url)
+          .then(response => console.log(response.data.data.year));
+          button.html('В обработке..');
+          await promise
+          button.html('<img src="final/img/icon_in-bucket.svg" style="margin-right: 5px;">В корзине').css('background', '#5B3A32');
+          localStorage.setItem("paint_3", 'true');
+        });
+      });
+
+    </script>
+  </body>
+</html>
