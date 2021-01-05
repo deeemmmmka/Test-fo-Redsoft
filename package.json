@@ -30,7 +30,7 @@
     "imagemin-pngquant": "^8.0.0"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "jquery": "^3.4.1"
   }
 }
